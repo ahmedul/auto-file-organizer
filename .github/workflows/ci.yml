@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run tests
+        run: |
+          python - <<'PY'
+          import importlib.util, sys
+          from pathlib import Path
+          proj = Path('.')
+          sys.path.insert(0, str(proj))
+          spec = importlib.util.spec_from_file_location('tests.test_organizer', str(proj / 'tests' / 'test_organizer.py'))
+          mod = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(mod)
+          mod.test_basic_moves_and_dedup()
+          mod.test_recursive_and_dry_run()
+          print('TESTS_PASS')
+          PY
