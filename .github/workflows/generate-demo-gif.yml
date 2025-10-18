@@ -1,0 +1,27 @@
+name: Generate demo GIF
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-gif:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate GIF from asciinema cast
+        uses: docker://ghcr.io/asciinema/agg:latest
+        with:
+          args: assets/demo.cast assets/demo.gif
+
+      - name: Commit GIF
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add assets/demo.gif || true
+          git commit -m "docs(demo): add generated demo.gif" || echo "No changes to commit"
+          git push
