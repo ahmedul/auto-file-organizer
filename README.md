@@ -1,5 +1,7 @@
 # Auto File Organizer
 
+![CI](https://github.com/ahmedul/auto-file-organizer/actions/workflows/ci.yml/badge.svg)
+
 Auto-organize files into subfolders by type. Tiny Python CLI, no deps. Minimal Python tool to tidy folders by extension (Images, Docs, etc.).
 
 A tiny Python CLI tool that tidies a folder by moving files into subfolders by extension. Perfect for keeping "Downloads" or "Desktop" neat.
@@ -58,5 +60,6 @@ PRs welcome! Ideas:
 - GUI or web UI
 
 ## License
+MIT — see [LICENSE](./LICENSE).
 
 MIT — see `LICENSE`.
