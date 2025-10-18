@@ -33,15 +33,18 @@ python3 '/home/akabir/git/my project/auto-file-organizer/file_organizer.py' /tmp
 find /tmp/organizer-sandbox -maxdepth 2 -type f | sort
 ```
 
-## 2) Record a terminal demo
+## 2) Watch or record a terminal demo
 
-- Option A: asciinema (recommended)
+- Option A: Play the included asciinema cast
+  - `asciinema play assets/demo.cast`
+
+- Option B: Record your own with asciinema (recommended)
   - Install: https://asciinema.org
   - Record: `asciinema rec assets/demo.cast`
   - Re-run the demo commands above, then Ctrl-D to finish.
   - Share: upload the `.cast` to asciinema or include it in your README using a GIF/MP4 conversion.
 
-- Option B: GIF via ttyrec/agg/peek/obs
+- Option C: GIF via ttyrec/agg/peek/obs
   - Use Peek or OBS to capture a short 10–15s clip running the dry-run and apply.
 
 ## 3) Convert asciinema cast to GIF/MP4 (optional)
