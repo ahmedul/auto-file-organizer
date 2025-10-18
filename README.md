@@ -61,6 +61,10 @@ PRs welcome! Ideas:
 
 See [CONTRIBUTING](./CONTRIBUTING.md) and [CODE_OF_CONDUCT](./CODE_OF_CONDUCT.md).
 
+## Demo assets
+
+See `assets/DEMO.md` for a copy-paste sandbox demo and tips to record/share a quick preview (asciinema/GIF).
+
 ## Changelog
 See [CHANGELOG](./CHANGELOG.md).
 
