@@ -33,3 +33,28 @@ def test_basic_moves_and_dedup():
         assert (p / "Misc" / "unknown.xyz").exists()
         # noext remains in place
         assert (p / "noext").exists()
+
+
+def test_recursive_and_dry_run():
+    from pathlib import Path
+    import tempfile
+
+    with tempfile.TemporaryDirectory() as tmp:
+        p = Path(tmp)
+        # Create nested structure
+        (p / "sub").mkdir()
+        (p / "sub2" / "deep").mkdir(parents=True)
+        (p / "sub" / "x.jpg").write_bytes(b"img")
+        (p / "sub2" / "deep" / "y.pdf").write_bytes(b"pdf")
+
+        # Dry-run first: no changes expected, but count reflects intended moves
+        moved_dry = organize_files(tmp, recursive=True, dry_run=True)
+        assert moved_dry == 2
+        assert (p / "sub" / "x.jpg").exists()
+        assert (p / "sub2" / "deep" / "y.pdf").exists()
+
+        # Now actually move
+        moved_real = organize_files(tmp, recursive=True)
+        assert moved_real == 2
+        assert (p / "Images" / "x.jpg").exists()
+        assert (p / "Documents" / "y.pdf").exists()

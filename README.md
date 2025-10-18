@@ -20,6 +20,22 @@ Or specify a target directory:
 python3 file_organizer.py /path/to/folder
 ```
 
+Options:
+
+- `--recursive` — also organize files inside subdirectories.
+- `--dry-run` — print what would be moved without changing anything.
+- `--move-noext` — move files without extensions to `Misc` (default leaves them in place).
+
+Examples:
+
+```bash
+# Preview actions for Downloads recursively without changing anything
+python3 file_organizer.py ~/Downloads --recursive --dry-run
+
+# Actually organize recursively and move files with no extension into Misc
+python3 file_organizer.py ~/Downloads --recursive --move-noext
+```
+
 What it does:
 - Creates subfolders like `Images`, `Documents`, `Archives`, `Videos`, `Audio`, `Code`, and `Misc`.
 - Moves only top-level files (does not recurse into subfolders).
