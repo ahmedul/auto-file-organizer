@@ -59,7 +59,10 @@ PRs welcome! Ideas:
 - Scheduler/cron integration
 - GUI or web UI
 
+See [CONTRIBUTING](./CONTRIBUTING.md) and [CODE_OF_CONDUCT](./CODE_OF_CONDUCT.md).
+
+## Changelog
+See [CHANGELOG](./CHANGELOG.md).
+
 ## License
 MIT — see [LICENSE](./LICENSE).
-
-MIT — see `LICENSE`.
