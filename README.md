@@ -1,5 +1,7 @@
 # Auto File Organizer
 
+Auto-organize files into subfolders by type. Tiny Python CLI, no deps. Minimal Python tool to tidy folders by extension (Images, Docs, etc.).
+
 A tiny Python CLI tool that tidies a folder by moving files into subfolders by extension. Perfect for keeping "Downloads" or "Desktop" neat.
 
 - No dependencies (standard library only)
@@ -38,8 +40,8 @@ python3 file_organizer.py ~/Downloads --recursive --move-noext
 
 What it does:
 - Creates subfolders like `Images`, `Documents`, `Archives`, `Videos`, `Audio`, `Code`, and `Misc`.
-- Moves only top-level files (does not recurse into subfolders).
-- Files without extensions are left in place by default (to avoid surprising moves of executables or dotfiles). Adjust in code if you prefer moving them to `Misc`.
+- Moves only top-level files by default; add `--recursive` to include subfolders.
+- Files without extensions are left in place by default (to avoid surprising moves of executables or dotfiles). Use `--move-noext` to move them to `Misc`.
 - If a file with the same name already exists in the destination, it appends a number like `file (1).ext`.
 
 ## Customize Categories
